@@ -118,4 +118,6 @@ func onAdd(obj interface{}) {
 
 * SharedInformerFactory，Shared指的是在多个Informer/lister共享一个本地cache, 资源的变化会同时通知到cache和 listers
 * lister指的就是OnAdd、OnUpdate、OnDelete 这些回调函数背后的对象。
-* 
+
+
+

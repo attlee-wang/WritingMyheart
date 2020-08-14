@@ -1,11 +1,8 @@
 # Informer机制.md
 
+0.参考
 
-
-\[top\]
-
-1. 参考
-2. [kubernetes 中 informer 的使用](https://blog.tianfeiyu.com/2019/05/17/client-go_informer/)
+* [kubernetes 中 informer 的使用](https://blog.tianfeiyu.com/2019/05/17/client-go_informer/)
 
 ### 一、基础
 

@@ -6,7 +6,7 @@
 * [k8s-controller-custom-resource](https://github.com/resouer/k8s-controller-custom-resource)
 * [极客时间深入剖析kubernetes](https://time.geekbang.org/column/article/41876)
 
-### 一、基础
+## 一、基础
 
 #### 1.为什么需要informer?
 
@@ -31,7 +31,7 @@
 * Local Store 本地缓存: informer 的 cache, LocalStore 只会被 Lister 的 List/Get 方法访问。 并且非全部数据，有部分数据还在DeltaFIFO 中。
 * WorkQueue 事件队列：DeltaIFIFO 收到数据后会先将数据存储在自己的数据结构中，然后直接操作 Store 中存储的数据，更新完 store 后 DeltaIFIFO 会将该事件 pop 到 WorkQueue 中，Controller 收到 WorkQueue 中的事件会根据对应的类型触发对应的回调函数。\(这块的先后顺序？\)
 
-### 二、使用
+## 二、使用
 
 #### 1.作为 client 使用示例
 
@@ -531,6 +531,4 @@ $ tree
     }
     
     ```
-
     
-

@@ -275,3 +275,111 @@ func insert(q *waitForPriorityQueue, knownEntries map[t]*waitFor, entry *waitFor
 <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/image-20200823103339876.png" alt="image-20200823103339876" style="zoom:50%;" />
 
 ​		将元素1放入waitingForAddCh字段中，通过waitingLoop函数消费元素数据。当元素的延迟时间不大于当前时间时，将该元素放入优先队列（waitForPriorityQueue）中继续等待。当元素的延迟时间大于当前时间时，则将该元素插入FIFO队列中。同时，也会遍历waitForPriorityQueue中的元素，按照上述逻辑验证时间。
+
+### 3.限速队列
+
+限速队列是利用延迟队列的延迟特性，延迟某个元素的插入FIFO队列的时间，达到限速的目的。接口如下：
+
+```go
+// 代码位置：k8s.io\client-go\util\workqueue\default_rate_limiters.go
+type RateLimiter interface {
+	// When gets an item and gets to decide how long that item should wait
+	When(item interface{}) time.Duration //获取指定元素等待的时间
+	// Forget indicates that an item is finished being retried. 
+    // Doesn't matter whether its for perm failing or for success, we'll stop tracking it
+	Forget(item interface{})             //释放指定元素，清空该元素的排队数
+	// NumRequeues returns back how many failures the item has had
+	NumRequeues(item interface{}) int    //指定元素的排队数，即某个元素的数量
+}
+```
+
+>   限速周期：从执行AddRateLimited方法到执行完Forget方法之间的时间。
+
+Client-go  提供了如下四种限速算法：
+
+#### 3.1 令牌桶算法(BucketRateLimiter)
+
+令牌桶算法通过Go的第三方库golang.org/x/time/rate实现。
+
+```go
+BucketRateLimiter{Limiter: rate.NewLimiter(rate.Limit(10), 100)} //每秒10个token, 最多100 token
+```
+
+原理：内部实现了一个存放token的桶，初始时桶是空的，limiter会以固定速率往桶里填充token，直到将其填满为止，多余的token会被丢弃。每个元素都会从令牌桶得到一个token，直到得到token的元素才允许通过，而没有得到token的元素处于等待状态。
+
+算法原理图如下：
+
+<img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/image-20200827205623064.png" alt="image-20200827205623064" style="zoom:40%;" />
+
+#### 3.2 排队指数算法(ItemExponentialFailureLimiter)
+
+原理：将相同元素的排队数作为指数，排队数增大，速率限制呈指数级增长，但其最大值不会超过maxDelay。
+
+```go
+// 代码位置：k8s.io\client-go\util\workqueue\default_rate_limiters.go
+func (r *ItemExponentialFailureRateLimiter) When(item interface{}) time.Duration {
+	r.failuresLock.Lock()
+	defer r.failuresLock.Unlock()
+
+    //获取item元素排队数量并将其加1
+	exp := r.failures[item]
+	r.failures[item] = r.failures[item] + 1
+
+    //计算其限速时间, 限速时间 = 基础时间*2^exp
+	// The backoff is capped such that 'calculated' value never overflows.
+	backoff := float64(r.baseDelay.Nanoseconds()) * math.Pow(2, float64(exp))
+	if backoff > math.MaxInt64 {//大于最大int64，返回最大时间
+		return r.maxDelay
+	}
+
+	calculated := time.Duration(backoff)
+	if calculated > r.maxDelay {/大于最大时间，返回最大时间
+		return r.maxDelay
+	}
+
+	return calculated
+}
+```
+
+#### 3.3 计数器算法(ItemFastSlowRateLimiter)
+
+原理：限制一段时间内允许通过的元素数量。例如在1分钟内只允许通过100个元素，每插入一个元素，计数器自增1，当计数器到100的阈值且还在限速周期内时，则不允许元素再通过。
+
+```go
+// 代码位置：k8s.io\client-go\util\workqueue\default_rate_limiters.go
+func (r *ItemFastSlowRateLimiter) When(item interface{}) time.Duration {
+	r.failuresLock.Lock()
+	defer r.failuresLock.Unlock()
+
+	r.failures[item] = r.failures[item] + 1
+
+	if r.failures[item] <= r.maxFastAttempts { //判断排队数超过maxFastAttempts开始降速
+		return r.fastDelay
+	}
+
+	return r.slowDelay
+}
+```
+
+#### 3.4 混合模式(MaxOfRateLimiter)
+
+混合模式是将多种限速算法混合使用，即多种限速算法同时生效。
+
+下面为默认使用排队指数算法和令牌桶算法：
+
+```go
+func DefaultControllerRateLimiter() RateLimiter {
+	return NewMaxOfRateLimiter(
+		NewItemExponentialFailureRateLimiter(5*time.Millisecond, 1000*time.Second),
+		// 10 qps, 100 bucket size.  This is only for retry speed and its only the overall factor (not per item)
+		&BucketRateLimiter{Limiter: rate.NewLimiter(rate.Limit(10), 100)},
+	)
+}
+```
+
+
+
+### 小结
+
+WorkQueue支持3种队列，分别对应三种不同的使用场景。其中FIFO是基础，延时队列基于FIFO实现，限速队列又基于延迟队列实现。限速队列队列有四种限速算法，对应不同的限速场景。
+

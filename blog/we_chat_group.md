@@ -20,7 +20,7 @@
 
 
 
-<img src="/Users/attlee/Library/Application Support/typora-user-images/image-20201224225024704.png" alt="image-20201224225024704" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101302.png" alt="image-20201224225024704" style="zoom:50%;" />
 
 看到立碑二维码用不过期，我兴奋了，赶紧去尝试了一把，详细流程如下：
 
@@ -28,17 +28,17 @@
 
 第二步：返回客户群界面 ==> 加入群聊 ==> 通过立牌加入群聊（当然可选其他两个，类似）；
 
-<img src="/Users/attlee/Library/Application Support/typora-user-images/image-20201224235559906.png" alt="image-20201224235559906" style="zoom:33%;" /><img src="/Users/attlee/Library/Application Support/typora-user-images/image-20201224235844539.png" alt="image-20201224235844539" style="zoom:33%;" /><img src="/Users/attlee/Library/Application Support/typora-user-images/image-20201224230015564.png" alt="image-20201224230015564" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101324.png" alt="image-20201224235559906" style="zoom:33%;" /><img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101331.png" alt="image-20201224235844539" style="zoom:33%;" /><img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101339.png" alt="image-20201224230015564" style="zoom:33%;" />
 
 第三步：选择新建群聊/选择已有群聊==> 选择群 ==> 填写立牌展示群名 ==> 下载相册/发送微信群体验
 
-<img src="/Users/attlee/Library/Application Support/typora-user-images/image-20201224230832114.png" alt="image-20201224230832114" style="zoom:33%;" /><img src="/Users/attlee/Library/Application Support/typora-user-images/image-20201224230924808.png" alt="image-20201224230924808" style="zoom:33%;" /><img src="/Users/attlee/Library/Application Support/typora-user-images/image-20201224231310344.png" alt="image-20201224231310344" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101413.png" alt="image-20201224230832114" style="zoom:33%;" /><img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101423.png" alt="image-20201224230924808" style="zoom:33%;" /><img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101450.png" alt="image-20201224231310344" style="zoom:33%;" />
 
 一些注意事项：
 
 -   怎么还是显示群二维码有效期7天？
 
-    <img src="/Users/attlee/Library/Application Support/typora-user-images/image-20201224232024450.png" alt="image-20201224232024450" style="zoom:33%;" /><img src="/Users/attlee/Library/Application Support/typora-user-images/image-20201224232343021.png" alt="image-20201224232343021" style="zoom:63%;" />
+    <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101458.png" alt="image-20201224232024450" style="zoom:33%;" /><img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101505.png" alt="image-20201224232343021" style="zoom:63%;" />
 
 比如扫我生成的SuperEdge开源项目微信群，显示的群二维码就提示该二位码7天内有效，但是注意后半句，**重新进入将会更新**，也就是说过期了，扫第一个二维码，第二个群二维码会自动生成新的。
 
@@ -56,7 +56,13 @@
 
 最后觉得我实实际际地解决您的问题，看在真心分享的份上，凭心打赏：
 
-![image-20201224234354592](/Users/attlee/Library/Application Support/typora-user-images/image-20201224234354592.png)
+![image-20201224234354592](https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101514.png)
 
 最后的最后还期望微信的同学，能考虑下大家使用的痛，考虑下这个场景，从功能上彻彻底底的解决这个问题。
+
+
+
+
+
+
 

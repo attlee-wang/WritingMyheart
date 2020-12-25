@@ -18,9 +18,9 @@
 
 为这个小事，一直想找个解决方法，还给腾讯企业微信的同学提了下诉求。今天无意间在设置企业微信群的时候发现了下面这个东西：
 
-
-
-<img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101302.png" alt="image-20201224225024704" style="zoom: 20%;" />
+<div align=center>
+    <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101302.png" alt="image-20201224225024704" style="zoom: 10%;" />
+</div>
 
 看到立碑二维码用不过期，我兴奋了，赶紧去尝试了一把，详细流程如下：
 
@@ -28,16 +28,23 @@
 
 第二步：返回客户群界面 ==> 加入群聊 ==> 通过立牌加入群聊（当然可选其他两个，类似）；
 
-<img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225102019.png" alt="image-20201225102019918" style="zoom: 33%;" />
+<div align=center>
+    <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225102019.png" alt="image-20201225102019918" style="zoom: 33%;" />
+</div>
 
 第三步：选择新建群聊/选择已有群聊==> 选择群 ==> 填写立牌展示群名 ==> 下载相册/发送微信群体验
 
-<img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225102117.png" alt="image-20201225102117170" style="zoom: 33%;" />
+<div align="center">
+    <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225102117.png" alt="image-20201225102117170" style="zoom: 33%;" />
+</div>
 
 一些注意事项：
 
 -   怎么还是显示群二维码有效期7天？
--   <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225102215.png" alt="image-20201225102215154" style="zoom: 33%;" />
+
+    <div align="center">
+        <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225102215.png" alt="image-20201225102215154" style="zoom: 25%;" />
+    </div>
 
 比如扫我生成的SuperEdge开源项目微信群，显示的群二维码就提示该二位码7天内有效，但是注意后半句，**重新进入将会更新**，也就是说过期了，扫第一个二维码，第二个群二维码会自动生成新的。
 
@@ -55,7 +62,9 @@
 
 最后觉得我实实际际地解决您的问题，看在真心分享的份上，凭心打赏：
 
-<img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101514.png" alt="image-20201224234354592" style="zoom: 67%;" />
+<div align="center">
+    <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101514.png" alt="image-20201224234354592" style="zoom: 67%;" />
+</div>
 
 最后的最后还期望微信的同学，能考虑下大家使用的痛，考虑下这个场景，从功能上彻彻底底的解决这个问题。
 

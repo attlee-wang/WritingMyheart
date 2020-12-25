@@ -19,7 +19,7 @@
 为这个小事，一直想找个解决方法，还给腾讯企业微信的同学提了下诉求。今天无意间在设置企业微信群的时候发现了下面这个东西：
 
 <div align=center>
-    <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101302.png" alt="image-20201224225024704" style="zoom: 5%;" />
+    <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101302.png" alt="image-20201224225024704" style="zoom: 2%;" />
 </div>
 
 看到立碑二维码用不过期，我兴奋了，赶紧去尝试了一把，详细流程如下：
@@ -43,7 +43,7 @@
 -   怎么还是显示群二维码有效期7天？
 
     <div align="center">
-        <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225102215.png" alt="image-20201225102215154" style="zoom: 25%;" />
+        <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225102215.png" alt="image-20201225102215154" style="zoom: 15%;" />
     </div>
 
 比如扫我生成的SuperEdge开源项目微信群，显示的群二维码就提示该二位码7天内有效，但是注意后半句，**重新进入将会更新**，也就是说过期了，扫第一个二维码，第二个群二维码会自动生成新的。

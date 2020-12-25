@@ -19,7 +19,7 @@
 为这个小事，一直想找个解决方法，还给腾讯企业微信的同学提了下诉求。今天无意间在设置企业微信群的时候发现了下面这个东西：
 
 <div align=center>
-    <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101302.png" alt="image-20201224225024704" style="zoom: 10%;" />
+    <img src="https://raw.githubusercontent.com/attlee-wang/myimage/master/image/20201225101302.png" alt="image-20201224225024704" style="zoom: 5%;" />
 </div>
 
 看到立碑二维码用不过期，我兴奋了，赶紧去尝试了一把，详细流程如下：
